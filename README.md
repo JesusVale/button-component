@@ -27,7 +27,7 @@
 
 ## Overview
 
-![screenshot](![Overview Image](overview.png))
+[Overview Image](overview.png)
 
 - With this project i practice the creation of a dynamic component, using SASS and React
 
