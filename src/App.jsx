@@ -1,5 +1,6 @@
 import "./style/app.css";
 import Button from "./components/Button.jsx"
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
@@ -78,7 +79,7 @@ function App() {
             <Button disabled />
           </div>
        </section>
-      
+      <Footer />
     </>
   )
 }
