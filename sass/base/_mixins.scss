@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "./values" as v;
+
+
+@mixin variant($variant, $color){
+    $lightedColor: lighten($color, 30);
+     @if $variant == "default"{
+        background-color: $color;
+        color: get-contrast-color($color);
+        &:hover, &:focus{
+            background-color: darken($color, 10);
+        }
+     }
+     @if $variant == "text"{
+        @if $color != map.get(v.$colors, "default"){
+            color: $color;
+        } 
+        background-color: white;
+        &:hover, &:focus{
+            background-color: rgba($color, 0.3);
+            
+        }
+     }
+     @if $variant == "outline"{
+        @if $color != map.get(v.$colors, "default"){
+            color: $color;
+        } 
+        background-color: white;
+        outline: 2px solid $color;
+        &:hover, &:focus{
+            background-color: rgba($color, 0.3);
+        }
+     }
+     
+     
+}
+
+
+@function get-contrast-color($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+    @if ($luminance > 128) {
+        @return black;
+    } @else {
+        @return white;
+    }
+}
